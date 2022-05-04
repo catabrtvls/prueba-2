@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Diseño y nuevos medios" />
+        <title>Final Fantasy XIV</title>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <p><a href="index.html" class="active">Portada</a> <a href="peliculas.html">Entregas</a> <a href="locaciones.html">Locaciones</a> <a href="ganancias.html">Suscripciones</a></p>
+            </nav>
+            <main>
+                <div id="mapa">
+                    <!--acá se mete el mapa-->
+                </div>
+            </main>
+            <footer>
+                  <p><a href="https://github.com/catabrtvls">Catalina Aburto</a> <a href="https://github.com/profesorfaco/dno037-2022#readme">DNO037</a></p>
+            </footer>
+        </div>
+<script>
+    var mymap = L.map('mapa').setView([33.5427796,9.9672612], 2);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+        maxZoom: 18,
+        id: 'mapbox/dark-v10',
+        tileSize: 512,
+        zoomOffset: -1
+    }).addTo(mymap);
+
+    var icon = L.icon({
+                        iconUrl: "images/icon.png",
+                        iconSize:     [40, 40],
+                        });
+
+
+
+    L.marker([43.093349552232226, 141.35297816135179],{icon: icon}).addTo(mymap).bindPopup("<b>¿Sabías? </b>Aquí nació el director de FFXIV, Naoki Yoshida");
+    L.marker([24.1388208057337, -110.34138435801844],{icon: icon}).addTo(mymap).bindPopup("<b>¿Sabías? </b>Aquí nació Masayoshi Soken, compositor del juego");
+    L.marker([35.704028062375656, 139.7068356685524],{icon: icon}).addTo(mymap).bindPopup("<b>¿Sabías? </b>Aquí está la oficina central de Square Enix");
+    L.marker([34.96962305514865, -118.48340384344873],{icon: icon}).addTo(mymap).bindPopup("<b>¿Sabías? </b>Esta oficina localiza el juego al inglés");
+    L.marker([54.11394134131416, 10.007862886193243],{icon: icon}).addTo(mymap).bindPopup("<b>¿Sabías? </b>Esta oficina localiza el juego al alemán");
+    L.marker([49.58259348251642, 2.194810893087038],{icon: icon}).addTo(mymap).bindPopup("<b>¿Sabías? </b>Esta oficina localiza el juego al francés");
+
+
+
+</script>
+    </body>
+</html>
